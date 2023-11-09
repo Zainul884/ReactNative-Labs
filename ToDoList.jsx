@@ -14,7 +14,7 @@ const ToDoList = () => {
           <Text style={styles.taskText}>Go to gym</Text>
         </View>
       </Pressable>
-      {}
+      {/* Add more tasks*/}
     </ScrollView>
   );
 };
