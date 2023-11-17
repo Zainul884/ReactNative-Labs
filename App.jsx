@@ -1,21 +1,53 @@
-import React, { useState } from 'react';
-import { SafeAreaView } from 'react-native';
-import ToDoList from './ToDoList';
-import ToDoForm from './ToDoForm';
+/**
+ * My To Do List App
+ *
+ * @format
+ */
+
+import React/*, { useState }*/ from 'react';
+import {
+  SafeAreaView,
+  StyleSheet,
+  Pressable,
+  View,
+  Text,
+  ScrollView,
+  TextInput,
+  Button
+} from 'react-native';
+
+import ToDoList from './src/ToDoList';
+import ToDoForm from './src/ToDoForm';
+
 
 function App() {
-  const [tasks, setTasks] = useState([
-    { id: 1, text: 'Do laundry' },
-    { id: 2, text: 'Go to gym' },
-    { id: 3, text: 'Walk dog' },
+  const [tasks, setTasks] = React.useState([
+    'Do laundry',
+    'Go to gym',
+    'Walk dog',
+    'Eat food'
   ]);
+
+  const handleAddTask = (task) => {
+    /*const newTasks = tasks;
+    
+    newTasks.push(task);
+
+    setTasks(newTasks)*/
+
+    setTasks([...tasks, task])
+  };
 
   return (
     <SafeAreaView>
       <ToDoList tasks={tasks} />
-      <ToDoForm />
+      <ToDoForm onAddTask={handleAddTask}/>
     </SafeAreaView>
   );
 }
+
+const styles = StyleSheet.create({
+ 
+});
 
 export default App;
